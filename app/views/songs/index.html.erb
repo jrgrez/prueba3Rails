@@ -18,7 +18,7 @@
         <td><%= song.duration %></td>
         <td><%= song.genre.name %></td>
          <td>
-             <%= link_to "Si", user_songs_path(current_user.id, song: song), method: :post%>
+             <%= link_to "Si", addtouser_song_path(song, current_user.id)%>
          </td>
         <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
