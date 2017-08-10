@@ -2,11 +2,17 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   
 
+
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
-    @genres = Genre.all
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @songs =  @user.songs
+    else
+      @songs = Song.all
+      @genres = Genre.all
+    end
   end
 
   # GET /songs/1
