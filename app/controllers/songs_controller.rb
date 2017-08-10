@@ -6,6 +6,7 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     @songs = Song.all
+    @genres = Genre.all
   end
 
   # GET /songs/1
@@ -16,10 +17,12 @@ class SongsController < ApplicationController
   # GET /songs/new
   def new
     @song = Song.new
+    @genres = Genre.all
   end
 
   # GET /songs/1/edit
   def edit
+    @genres = Genre.all
   end
 
   # POST /songs
@@ -66,6 +69,7 @@ class SongsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       @song = Song.find(params[:id])
+      @genre = Genre.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

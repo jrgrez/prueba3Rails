@@ -23,10 +23,10 @@
 
   <div class="field">
     <%= f.label :genre_id %>
-    <%= f.text_field :genre_id %>
+    <%= f.select :genre_id, options_from_collection_for_select(@genres, :id, :name)  %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default"%>
   </div>
 <% end %>
